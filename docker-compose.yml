@@ -7,6 +7,6 @@ services:
     ports:
       - "8050:8050"
     restart: unless-stopped
-    volumes:
-      # Optional: mount data directory for easy updates without rebuild
-      - ./data:/app/data
+#    volumes:
+#      # Optional: mount data directory for easy updates without rebuild
+#      - ./data:/app/data
