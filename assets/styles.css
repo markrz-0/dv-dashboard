@@ -1,0 +1,532 @@
+/* Import Outfit and Inter fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+    --bg-color: #0b0f19;
+    --card-bg: rgba(22, 28, 45, 0.65);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-blue: #38bdf8;
+    --accent-purple: #c084fc;
+    --accent-green: #34d399;
+    --accent-orange: #fb923c;
+    --accent-red: #f87171;
+    --accent-glow: rgba(56, 189, 248, 0.15);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(at 10% 20%, rgba(56, 189, 248, 0.05) 0px, transparent 50%),
+        radial-gradient(at 90% 80%, rgba(192, 132, 252, 0.05) 0px, transparent 50%);
+    background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(11, 15, 25, 0.5);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Glassmorphism Card styling */
+.glass-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-card:hover {
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4), 0 0 12px 1px rgba(56, 189, 248, 0.05);
+}
+
+/* Disable backdrop-filter for the map card to prevent severe rendering lag during panning */
+.map-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* Custom header monogram style */
+.logo-monogram {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    margin-right: 12px;
+}
+
+/* Tabs & Navigation styling */
+.custom-tabs .nav-link {
+    color: var(--text-secondary) !important;
+    background-color: transparent !important;
+    border: none !important;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 12px 24px !important;
+    border-bottom: 3px solid transparent !important;
+    transition: all 0.3s ease;
+}
+
+.custom-tabs .nav-link.active {
+    color: var(--text-primary) !important;
+    border-bottom: 3px solid var(--accent-blue) !important;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+.custom-tabs .nav-link:hover:not(.active) {
+    color: var(--text-primary) !important;
+    border-bottom: 3px solid rgba(56, 189, 248, 0.3) !important;
+}
+
+.custom-tabs {
+    border-bottom: 1px solid var(--card-border) !important;
+    margin-bottom: 25px;
+}
+
+/* Control widgets custom styling */
+.control-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Unified form controls (text inputs) and dropdown selectors */
+input.form-control,
+.form-control {
+    background-color: #0f172a !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #f8fafc !important;
+    border-radius: 8px !important;
+    height: 38px !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+input.form-control:focus,
+.form-control:focus {
+    background-color: #0f172a !important;
+    border-color: var(--accent-blue) !important;
+    box-shadow: 0 0 0 0.2rem rgba(56, 189, 248, 0.25) !important;
+    color: #f8fafc !important;
+}
+
+/* Remove white background round-corner bleed-through from wrappers */
+.dash-dropdown,
+.dash-dropdown-wrapper,
+div[class*="Select"],
+.dash-dropdown div {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Custom Dropdown Trigger (Control Box) */
+.dash-dropdown-trigger {
+    background-color: #0f172a !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 8px !important;
+    color: #f8fafc !important;
+    min-height: 38px !important;
+    height: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+/* Dropdown Container and Controls (React Select fallback) */
+.dash-dropdown .Select-control,
+.dash-dropdown .Select__control,
+.Select__control,
+.Select-control,
+div[class*="Select-control"],
+div[class*="Select__control"],
+div[class*="Select"] > div,
+.dash-dropdown div[class*="control"] {
+    background-color: #0f172a !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 8px !important;
+    min-height: 38px !important;
+    height: 38px !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+    color: #f8fafc !important;
+}
+
+/* Focused Dropdown Control */
+.dash-dropdown .Select__control--is-focused,
+.Select__control--is-focused,
+div[class*="Select__control--is-focused"],
+.dash-dropdown-trigger:focus,
+.dash-dropdown-trigger[class*="focused"],
+.dash-dropdown-trigger[class*="active"] {
+    border-color: var(--accent-blue) !important;
+    box-shadow: 0 0 0 0.2rem rgba(56, 189, 248, 0.25) !important;
+}
+
+/* Inner Input Text inside dropdown */
+.Select__input,
+input[class*="Select__input"] {
+    color: #f8fafc !important;
+}
+
+/* Selected Value Label */
+.dash-dropdown .Select-value-label,
+.dash-dropdown .Select__single-value,
+.Select__single-value,
+.Select-value,
+div[class*="singleValue"],
+div[class*="single-value"],
+span[class*="singleValue"],
+.dash-dropdown-value,
+.dash-dropdown-value-item {
+    color: #f8fafc !important;
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+/* Multi-select Tags styling */
+.Select__multi-value,
+div[class*="multiValue"] {
+    background-color: rgba(56, 189, 248, 0.15) !important;
+    border: 1px solid rgba(56, 189, 248, 0.3) !important;
+    border-radius: 4px !important;
+}
+.Select__multi-value__label,
+div[class*="multiValue__label"] {
+    color: #f8fafc !important;
+}
+.Select__multi-value__remove,
+div[class*="multiValue__remove"] {
+    color: #f8fafc !important;
+    cursor: pointer !important;
+}
+.Select__multi-value__remove:hover,
+div[class*="multiValue__remove"]:hover {
+    background-color: rgba(248, 113, 113, 0.2) !important;
+    color: var(--accent-red) !important;
+}
+
+/* Dropdown Menu Box (portal compatibility) */
+.dash-dropdown .Select-menu-outer,
+.dash-dropdown .Select__menu,
+.Select__menu,
+.Select-menu-outer,
+div[class*="Select-menu"],
+div[class*="Select__menu"],
+.dash-dropdown-content {
+    background-color: #0f172a !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 8px !important;
+    z-index: 99999 !important; /* Extremely high z-index to stay on top of charts */
+}
+
+/* Options list inside menu */
+.dash-dropdown .Select-option,
+.Select__option,
+.Select-option,
+div[class*="Select-option"],
+div[class*="Select__option"],
+.dash-dropdown-option {
+    background-color: transparent !important;
+    color: var(--text-secondary) !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Option on Hover/Focus */
+.dash-dropdown .Select-option.is-focused,
+.dash-dropdown .Select-option:hover,
+.Select__option--is-focused,
+.Select__option:hover,
+div[class*="Select-option"].is-focused,
+div[class*="Select-option"]:hover,
+div[class*="Select__option--is-focused"],
+div[class*="Select__option"]:hover,
+.dash-dropdown-option:hover,
+.dash-dropdown-option.is-focused,
+.dash-dropdown-option.dash-dropdown-option-focused {
+    background-color: rgba(56, 189, 248, 0.1) !important;
+    color: #f8fafc !important;
+}
+
+/* Option selected */
+.Select__option--is-selected,
+div[class*="Select__option--is-selected"],
+div[class*="Select-option"].is-selected,
+div[class*="Select-option"][class*="selected"],
+div[class*="Select__option"][class*="selected"],
+.dash-dropdown-option.dash-dropdown-option-selected {
+    background-color: rgba(56, 189, 248, 0.2) !important;
+    color: #f8fafc !important;
+}
+
+/* Dropdown Placeholder styling */
+.Select__placeholder,
+div[class*="placeholder"],
+span[class*="placeholder"],
+.dash-dropdown-placeholder {
+    color: var(--text-secondary) !important;
+}
+
+/* Search Box container inside dropdown options menu */
+.dash-dropdown-search-container {
+    background-color: #0f172a !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 6px !important;
+    padding: 2px 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    margin: 8px !important;
+    box-sizing: border-box !important;
+}
+
+/* Search input field inside dropdown options menu */
+.dash-dropdown-search {
+    background-color: transparent !important;
+    border: none !important;
+    color: #f8fafc !important;
+    padding: 6px 8px !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Magnifying Glass Search Icon inside dropdown options menu */
+.dash-dropdown-search-icon {
+    color: var(--text-secondary) !important;
+    margin-right: 6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+/* Action buttons container (Select All / Deselect All) */
+.dash-dropdown-actions {
+    padding: 8px 12px !important;
+    display: flex !important;
+    gap: 16px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    margin-bottom: 4px !important;
+    background-color: transparent !important;
+}
+
+/* Action buttons text (Select All / Deselect All) */
+.dash-dropdown-action-button {
+    color: var(--accent-blue) !important;
+    background-color: transparent !important;
+    border: none !important;
+    font-weight: 500 !important;
+    font-size: 0.85rem !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+.dash-dropdown-action-button:hover {
+    color: #f8fafc !important;
+    text-shadow: 0 0 8px rgba(56, 189, 248, 0.4) !important;
+}
+
+/* Stacking context fix for dropdown overlay menus */
+.controls-card {
+    position: relative;
+    z-index: 1000 !important; /* High z-index to stack card above lower content */
+}
+
+/* Slider and checkboxes style overrides */
+.rc-slider-rail {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.rc-slider-track {
+    background-color: var(--accent-blue) !important;
+}
+
+.rc-slider-handle {
+    border: 2px solid var(--accent-blue) !important;
+    background-color: var(--bg-color) !important;
+}
+
+.rc-slider-mark-text {
+    color: var(--text-secondary) !important;
+    font-size: 0.8rem !important;
+}
+
+/* Detail panel elements */
+.detail-title {
+    color: var(--accent-blue);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.detail-value {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+
+.badge-status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+.status-not-endangered {
+    background-color: rgba(52, 211, 153, 0.15);
+    color: var(--accent-green);
+    border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+.status-shifting {
+    background-color: rgba(251, 146, 60, 0.15);
+    color: var(--accent-orange);
+    border: 1px solid rgba(251, 146, 60, 0.3);
+}
+
+.status-threatened {
+    background-color: rgba(251, 146, 60, 0.15);
+    color: var(--accent-orange);
+    border: 1px solid rgba(251, 146, 60, 0.3);
+}
+
+.status-moribund {
+    background-color: rgba(248, 113, 113, 0.15);
+    color: var(--accent-red);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+.status-nearly-extinct {
+    background-color: rgba(248, 113, 113, 0.15);
+    color: var(--accent-red);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+.status-extinct {
+    background-color: rgba(248, 113, 113, 0.15);
+    color: var(--accent-red);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+.status-unknown {
+    background-color: rgba(148, 163, 184, 0.15);
+    color: var(--text-secondary);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+/* Custom Table Style */
+.dash-spreadsheet-container .dash-spreadsheet {
+    border: 1px solid var(--card-border) !important;
+}
+
+.dash-spreadsheet-container .dash-spreadsheet cell {
+    background-color: rgba(15, 23, 42, 0.6) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--card-border) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Custom Table Row Hover Style (Bluish highlight instead of white) */
+.dash-table-container,
+.dash-spreadsheet-container,
+.dash-spreadsheet-inner,
+.dash-spreadsheet,
+.dash-spreadsheet-container .dash-spreadsheet-inner table {
+    --hover: rgba(56, 189, 248, 0.08) !important;
+    --hover-background: rgba(56, 189, 248, 0.08) !important;
+}
+
+.dash-table-container tr:hover,
+.dash-table-container tr:hover td,
+.dash-table-container tr:hover td.dash-cell,
+.dash-table-container tr:hover td.cell,
+.dash-spreadsheet tr:hover,
+.dash-spreadsheet tr:hover td,
+.dash-spreadsheet tr:hover td.dash-cell,
+.dash-spreadsheet tr:hover td.cell,
+.dash-spreadsheet td:hover,
+.dash-spreadsheet td.dash-cell:hover,
+.dash-spreadsheet td.cell:hover,
+.dash-spreadsheet-container .dash-spreadsheet cell:hover,
+.dash-spreadsheet-container .dash-spreadsheet tr:hover td {
+    background-color: rgba(56, 189, 248, 0.08) !important;
+    color: #f8fafc !important;
+}
+
+.dash-spreadsheet-container .dash-spreadsheet cell.focused {
+    background-color: rgba(56, 189, 248, 0.15) !important;
+    outline: 1px solid var(--accent-blue) !important;
+}
+
+.dash-header {
+    background-color: rgba(15, 23, 42, 0.9) !important;
+    color: var(--text-primary) !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 600 !important;
+}
+
+/* CSS for custom checklist */
+.custom-checklist .form-check-input {
+    background-color: rgba(15, 23, 42, 0.8) !important;
+    border: 1px solid var(--card-border) !important;
+}
+
+.custom-checklist .form-check-input:checked {
+    background-color: var(--accent-blue) !important;
+    border-color: var(--accent-blue) !important;
+}
+
+.custom-checklist .form-check-label {
+    color: var(--text-primary) !important;
+    font-size: 0.9rem;
+    margin-left: 6px;
+    margin-bottom: 4px;
+}

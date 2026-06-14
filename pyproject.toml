@@ -1,0 +1,12 @@
+[project]
+name = "world-languages-dashboard"
+version = "0.1.0"
+description = "Interactive dashboard for Glottolog world languages dataset"
+requires-python = ">=3.11"
+dependencies = [
+    "dash>=2.15.0",
+    "pandas>=2.0.0",
+    "plotly>=5.18.0",
+    "dash-bootstrap-components>=1.5.0",
+    "gunicorn>=21.2.0",
+]
